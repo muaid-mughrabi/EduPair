@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const solutionPath = path.join(folder, 'solution.ipynb');
 		const studentPath = path.join(folder, 'student.ipynb');
 
-		const pythonScript = path.join(context.extensionPath, 'src', 'scripts', 'generate_versions.py');
+		const pythonScript = path.join(context.extensionPath, 'scripts', 'generate_versions.py');
 
 		const command = `python "${pythonScript}" "${inputPath}" --solution "${solutionPath}" --student "${studentPath}"`;
 

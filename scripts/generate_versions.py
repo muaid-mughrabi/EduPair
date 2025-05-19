@@ -64,6 +64,32 @@ def process_code_cell(source_lines, target="solution"):
 
     return new_lines
 
+def process_markdown_cell(source_lines, target="solution"):
+    new_lines = []
+    inside_hide_block = False
+
+    for line in source_lines:
+        if line.strip() == "<!-- BEGIN HIDE -->":
+            inside_hide_block = True
+            continue
+
+        if line.strip() == "<!-- END HIDE -->":
+            inside_hide_block = False
+            if target == "student":
+                new_lines.append(PLACEHOLDER + "\n")   # keep line structure
+            continue
+
+        if inside_hide_block:
+            if target == "solution":
+                new_lines.append(line)  # instructors see the hidden text
+            # skip for student
+            continue
+
+        new_lines.append(line)          # ordinary line – keep for everyone
+
+    return new_lines
+
+
 def process_notebook(notebook_path: Path, output_path: Path, target: str):
     with notebook_path.open("r", encoding="utf-8") as f:
         nb = json.load(f)
@@ -71,6 +97,8 @@ def process_notebook(notebook_path: Path, output_path: Path, target: str):
     for cell in nb["cells"]:
         if cell["cell_type"] == "code":
             cell["source"] = process_code_cell(cell["source"], target)
+        elif cell["cell_type"] == "markdown":
+            cell["source"] = process_markdown_cell(cell["source"], target)
 
     with output_path.open("w", encoding="utf-8") as f:
         json.dump(nb, f, indent=1)
