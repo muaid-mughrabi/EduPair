@@ -14,6 +14,8 @@ EduPair was developed in just a few hours to support a specific academic need. W
 
 ## Release Notes
 
+### 0.1.1
+Add support for md annotations (hide blocks).
 
 ### 0.1.0
 

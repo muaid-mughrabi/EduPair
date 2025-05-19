@@ -6,6 +6,9 @@ All notable changes to the "notebook-generator" extension will be documented in 
 
 - Initial release
 
+## [0.1.1]
+- MD annotations
+
 ## [0.1.0]
 
 - Initial release
