@@ -5,6 +5,9 @@ EduPair is a minimalist VSCode extension built for academic use, allowing instru
 EduPair was developed in just a few hours to support a specific academic need. While I've aimed to follow good development practices, this is a minimal prototype intended to serve a narrow purpose. It’s a small utility built to streamline my own workflow, and it's provided as-is, with no guarantees beyond that.
 
 ## Features
+- See example notebook for supported annotations.
+- Per-notebook annotations
+  By using {notebookname}.edupair.json: an optional config files (stored next to your notebook), you can specify full paths for student and solution notebooks.
 
 ## Requirements
 
@@ -21,8 +24,15 @@ Add support for md annotations (hide blocks).
 
 Initial release, it can generate student and solution notebook based on an annotated master notebook.
 
+### 0.1.1
 
-## Following extension guidelines
+Add support for MD annotations
+
+### 0.2.0
+
+Per-Notebook Configuration 
+
+## Resources For Developers: Following extension guidelines
 
 Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
 

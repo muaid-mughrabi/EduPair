@@ -4,8 +4,10 @@ All notable changes to the "notebook-generator" extension will be documented in 
 
 ## [Unreleased]
 
-- Initial release
-
+## [0.2.0]
+- Feature: Per-Notebook Configuration 
+- Bugfix: Current file: undefined is code cell is not edited.
+  
 ## [0.1.1]
 - MD annotations
 

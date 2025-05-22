@@ -100,6 +100,8 @@ def process_notebook(notebook_path: Path, output_path: Path, target: str):
         elif cell["cell_type"] == "markdown":
             cell["source"] = process_markdown_cell(cell["source"], target)
 
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
     with output_path.open("w", encoding="utf-8") as f:
         json.dump(nb, f, indent=1)
 
